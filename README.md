@@ -89,7 +89,7 @@ python scripts/benchmark.py
 npm --prefix frontend run test:e2e
 ```
 
-For baseline diagnosis only: `python scripts/diagnose.py`. Benchmarking creates/removes a temporary SQLite database **inside `evidence/`**; it does not change the seeded demo. It hashes fixtures, checks canonical values against the declared oracle, exercises both workflows through the API, approves only the ambiguous fixture, and replays every file. The smoke test captures six screenshots and `evidence/playwright-results.json`. Current checks: **44 backend tests passed; typecheck/build passed; 2 Playwright tests passed; benchmark assertions passed**. The [follow-up audit](docs/06-review.md) records a malformed-year correction and its failing-before/passing-after evidence.
+For baseline diagnosis only: `python scripts/diagnose.py`. Benchmarking creates/removes a temporary SQLite database **inside `evidence/`**; it does not change the seeded demo. It hashes fixtures, checks canonical values against the declared oracle, exercises both workflows through the API, approves only the ambiguous fixture, and replays every file. The smoke test captures six screenshots and `evidence/playwright-results.json`. Current checks: **55 backend tests passed; typecheck/build passed; 3 Playwright tests passed; strengthened benchmark assertions passed**. The [CI-002 fixes](docs/07-review-fixes.md) add canonical coverage checks and prevent workflow switches during pending imports; fresh logs are preserved separately in `evidence/ci-002/`. The [follow-up audit](docs/06-review.md) records a malformed-year correction and its failing-before/passing-after evidence.
 
 If using an already installed Chrome instead of bundled Chromium:
 

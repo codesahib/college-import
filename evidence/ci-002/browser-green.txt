@@ -1,0 +1,20 @@
+
+> admissions-import-lab@1.0.0 test:e2e
+> playwright test
+
+[WebServer] INFO:     Started server process [34320]
+[WebServer] INFO:     Waiting for application startup.
+[WebServer] INFO:     Application startup complete.
+[WebServer] INFO:     Uvicorn running on http://127.0.0.1:18012 (Press CTRL+C to quit)
+[WebServer] (node:3080) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 3 tests using 1 worker
+
+(node:39244) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 e2e\import.spec.ts:4:1 › before and after import, actionable error, approval, replay and registry (1.2s)
+  ok 2 e2e\import.spec.ts:66:1 › mobile layout and unknown schema stay reviewable (407ms)
+  ok 3 e2e\workflow-pending.spec.ts:3:1 › pending baseline import prevents workflow switch and keeps matching detail (434ms)
+
+  3 passed (4.7s)

@@ -59,3 +59,5 @@ The handoff includes inspectable mappings and fixtures, regression tests, a rese
 - [AI engineering process and reviewed decisions](../docs/04-ai-engineering-process.md)
 - [Tradeoffs and maintenance guidance](../docs/05-tradeoffs.md), [presenter script](../docs/demo-script.md)
 - [Normalizer](../backend/normalizer.py), [declarative mappings](../backend/mappings.json), [backend regressions](../backend/tests/test_improvement.py), [browser smoke](../frontend/e2e/import.spec.ts)
+
+A [second targeted follow-up](../docs/07-review-fixes.md) strengthens benchmark multiset/persisted-record assertions and prevents delayed import responses from mixing workflow views. Current verification passes 55 backend tests and 3 browser tests, typecheck/build and the strengthened benchmark; the operational results and dataset denominators above are unchanged. Historical evidence is retained separately from the new red/green execution logs.

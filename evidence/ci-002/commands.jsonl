@@ -1,0 +1,7 @@
+{"label": "browser-red", "cwd": ".orchestrator/CI-002/frontend", "command": ["npm.cmd", "run", "test:e2e", "--", "workflow-pending.spec.ts"], "exit_code": 1}
+{"label": "oracle-green", "cwd": ".", "command": [".venv\\Scripts\\python.exe", "-m", "pytest", "backend/tests/test_benchmark_oracle.py", "-q", "-o", "cache_dir=.orchestrator/ci002-cache", "--basetemp=.orchestrator/ci002-oracle-green"], "exit_code": 0}
+{"label": "backend-green", "cwd": ".", "command": [".venv\\Scripts\\python.exe", "-m", "pytest", "backend/tests", "-q", "-o", "cache_dir=.orchestrator/ci002-cache", "--basetemp=.orchestrator/ci002-full", "--junitxml=evidence/ci-002/backend-tests.xml"], "exit_code": 0}
+{"label": "browser-green", "cwd": ".orchestrator/CI-002/frontend", "command": ["npm.cmd", "run", "test:e2e"], "exit_code": 0}
+{"label": "typecheck", "cwd": ".orchestrator/CI-002/frontend", "command": ["npm.cmd", "run", "typecheck"], "exit_code": 0}
+{"label": "build", "cwd": ".orchestrator/CI-002/frontend", "command": ["npm.cmd", "run", "build"], "exit_code": 0}
+{"label": "benchmark", "cwd": ".", "command": [".venv\\Scripts\\python.exe", ".orchestrator/CI-002/scripts/benchmark.py"], "exit_code": 0}
