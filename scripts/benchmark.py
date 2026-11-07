@@ -20,10 +20,12 @@ def summarize(result, truth):
     correct = sum(record in oracle for record in result["accepted"])
     wrong = len(result["accepted"]) - correct
     held = result.get("held", 0)
+    assert len(result["accepted"]) + result["rejected"] + held == result["total"]
     # Only the two review fixtures have held rows, and all of those rows are valid.
     assert not held or truth["invalid"] == 0
-    return {"accepted_valid": correct, "rejected_valid": truth["valid"] - correct - held,
-            "held_valid": held, "invalid_rejected": truth["invalid"] if not wrong else None,
+    rejected_valid = truth["valid"] - correct - held
+    return {"accepted_valid": correct, "rejected_valid": rejected_valid,
+            "held_valid": held, "invalid_rejected": result["rejected"] - rejected_valid,
             "incorrect_silent_mappings": wrong, "status": result["status"],
             "accepted": len(result["accepted"]), "rejected": result["rejected"],
             "mapping": result["mapping"], "schema_departure_surfaced": result["drift"]}
@@ -35,7 +37,9 @@ def main():
     report = {"generated_at": datetime.now(timezone.utc).isoformat(), "python": platform.python_version(),
               "platform": platform.platform(), "fixture_sha256": {
                   name: hashlib.sha256((ROOT / "fixtures" / name).read_bytes()).hexdigest() for name in EXPECTED},
-              "sample": {"files": len(EXPECTED), "rows": 19, "valid": 15, "invalid": 4}, "workflows": {}}
+              "oracle_sha256": hashlib.sha256((ROOT / "fixtures/expected.json").read_bytes()).hexdigest(),
+              "sample": {"files": len(EXPECTED), "rows": sum(t["valid"] + t["invalid"] for t in EXPECTED.values()),
+                         "valid": sum(t["valid"] for t in EXPECTED.values()), "invalid": sum(t["invalid"] for t in EXPECTED.values())}, "workflows": {}}
     original_db = os.environ.get("IMPORT_DB")
     try:
         with tempfile.TemporaryDirectory(prefix="benchmark-", dir=evidence) as temporary:

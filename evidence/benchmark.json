@@ -1,0 +1,1340 @@
+{
+  "generated_at": "2026-11-07T04:13:40.868339+00:00",
+  "python": "3.13.14",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "fixture_sha256": {
+    "atlas_v1.csv": "07f5813dff9ad8181e9757b1627bee3d83e208286bc832e37d799c34da01fd36",
+    "birch_v1.csv": "3256ced4b4dd3ee308058d22a55748239cee79868fb0eab4b5c09ee5b60cbf19",
+    "cedar_v1.csv": "f540c52234766bbd9a491b434f8c11d17f425e7fcc39f51b84f8fada734150e8",
+    "atlas_v2.csv": "9d983c8f9e29068be6ff1e09e35a8b030b50b084ee9b5f1f792e6bece408e891",
+    "ambiguous_v3.csv": "54ce95fa8a76fda79514277d7f9f4507ccd97cd78b2b577d6108c225b2755f73",
+    "unknown_v1.csv": "392a34dde5b8432a01a9b7a4da78035ca2c390069c4e628394bf25ec750c5563"
+  },
+  "oracle_sha256": "f9e4cca387bb15a705b060d6246abd556585a3057f788dcfc96729e8c09ccb38",
+  "sample": {
+    "files": 6,
+    "rows": 19,
+    "valid": 15,
+    "invalid": 4
+  },
+  "workflows": {
+    "baseline": {
+      "metrics": {
+        "accepted_valid": 3,
+        "rejected_valid": 12,
+        "held_valid": 0,
+        "invalid_rejected": 4,
+        "manual_corrections_required_initially": 5,
+        "approvals_executed": 0,
+        "schema_departures_surfaced": 5,
+        "uncertain_schemas_held_initially": 0,
+        "incorrect_silent_mappings": 0,
+        "records_before_replay": 3,
+        "records_after_replay": 3,
+        "record_growth_on_replay": 0,
+        "format_regressions_passing": 1,
+        "format_regressions_total": 4
+      },
+      "files": {
+        "atlas_v1.csv": {
+          "accepted_valid": 3,
+          "rejected_valid": 0,
+          "held_valid": 0,
+          "invalid_rejected": 1,
+          "incorrect_silent_mappings": 0,
+          "status": "completed",
+          "accepted": 3,
+          "rejected": 1,
+          "mapping": "strict-v1",
+          "schema_departure_surfaced": false
+        },
+        "birch_v1.csv": {
+          "accepted_valid": 0,
+          "rejected_valid": 3,
+          "held_valid": 0,
+          "invalid_rejected": 1,
+          "incorrect_silent_mappings": 0,
+          "status": "schema_error",
+          "accepted": 0,
+          "rejected": 4,
+          "mapping": "strict-v1",
+          "schema_departure_surfaced": true
+        },
+        "cedar_v1.csv": {
+          "accepted_valid": 0,
+          "rejected_valid": 3,
+          "held_valid": 0,
+          "invalid_rejected": 1,
+          "incorrect_silent_mappings": 0,
+          "status": "schema_error",
+          "accepted": 0,
+          "rejected": 4,
+          "mapping": "strict-v1",
+          "schema_departure_surfaced": true
+        },
+        "atlas_v2.csv": {
+          "accepted_valid": 0,
+          "rejected_valid": 3,
+          "held_valid": 0,
+          "invalid_rejected": 1,
+          "incorrect_silent_mappings": 0,
+          "status": "schema_error",
+          "accepted": 0,
+          "rejected": 4,
+          "mapping": "strict-v1",
+          "schema_departure_surfaced": true
+        },
+        "ambiguous_v3.csv": {
+          "accepted_valid": 0,
+          "rejected_valid": 2,
+          "held_valid": 0,
+          "invalid_rejected": 0,
+          "incorrect_silent_mappings": 0,
+          "status": "schema_error",
+          "accepted": 0,
+          "rejected": 2,
+          "mapping": "strict-v1",
+          "schema_departure_surfaced": true
+        },
+        "unknown_v1.csv": {
+          "accepted_valid": 0,
+          "rejected_valid": 1,
+          "held_valid": 0,
+          "invalid_rejected": 0,
+          "incorrect_silent_mappings": 0,
+          "status": "schema_error",
+          "accepted": 0,
+          "rejected": 1,
+          "mapping": "strict-v1",
+          "schema_departure_surfaced": true
+        }
+      },
+      "format_regressions": {
+        "atlas_v1.csv": true,
+        "birch_v1.csv": false,
+        "cedar_v1.csv": false,
+        "atlas_v2.csv": false
+      },
+      "initial_runs": {
+        "atlas_v1.csv": {
+          "id": 1,
+          "filename": "atlas_v1.csv",
+          "workflow": "baseline",
+          "created_at": "2026-11-07T04:13:40.973Z",
+          "status": "completed",
+          "accepted": [
+            {
+              "applicant_id": "SYN-A01",
+              "year": 2024,
+              "decision": "admitted",
+              "decision_date": "2024-04-01"
+            },
+            {
+              "applicant_id": "SYN-A02",
+              "year": 2024,
+              "decision": "denied",
+              "decision_date": "2024-04-02"
+            },
+            {
+              "applicant_id": "SYN-A03",
+              "year": 2024,
+              "decision": "waitlisted",
+              "decision_date": "2024-04-03"
+            }
+          ],
+          "errors": [
+            {
+              "row": 5,
+              "column": "year",
+              "value": "1999",
+              "message": "Expected a year from 2000 to 2100."
+            }
+          ],
+          "total": 4,
+          "rejected": 1,
+          "mapping": "strict-v1",
+          "drift": false,
+          "inserted": 3,
+          "unchanged": 0
+        },
+        "birch_v1.csv": {
+          "id": 2,
+          "filename": "birch_v1.csv",
+          "workflow": "baseline",
+          "created_at": "2026-11-07T04:13:40.979Z",
+          "status": "schema_error",
+          "accepted": [],
+          "errors": [
+            {
+              "row": 1,
+              "column": "header",
+              "value": "Candidate ID,Entry Year,Result,Decision Date",
+              "message": "Expected headers: applicant_id, year, decision, decision_date"
+            }
+          ],
+          "total": 4,
+          "rejected": 4,
+          "mapping": "strict-v1",
+          "drift": true,
+          "inserted": 0,
+          "unchanged": 0
+        },
+        "cedar_v1.csv": {
+          "id": 3,
+          "filename": "cedar_v1.csv",
+          "workflow": "baseline",
+          "created_at": "2026-11-07T04:13:40.984Z",
+          "status": "schema_error",
+          "accepted": [],
+          "errors": [
+            {
+              "row": 1,
+              "column": "header",
+              "value": "verdict,issued_on,application_cycle,record_id",
+              "message": "Expected headers: applicant_id, year, decision, decision_date"
+            }
+          ],
+          "total": 4,
+          "rejected": 4,
+          "mapping": "strict-v1",
+          "drift": true,
+          "inserted": 0,
+          "unchanged": 0
+        },
+        "atlas_v2.csv": {
+          "id": 4,
+          "filename": "atlas_v2.csv",
+          "workflow": "baseline",
+          "created_at": "2026-11-07T04:13:40.989Z",
+          "status": "schema_error",
+          "accepted": [],
+          "errors": [
+            {
+              "row": 1,
+              "column": "header",
+              "value": "outcome,decision_on,student_key,cycle",
+              "message": "Expected headers: applicant_id, year, decision, decision_date"
+            }
+          ],
+          "total": 4,
+          "rejected": 4,
+          "mapping": "strict-v1",
+          "drift": true,
+          "inserted": 0,
+          "unchanged": 0
+        },
+        "ambiguous_v3.csv": {
+          "id": 5,
+          "filename": "ambiguous_v3.csv",
+          "workflow": "baseline",
+          "created_at": "2026-11-07T04:13:40.995Z",
+          "status": "schema_error",
+          "accepted": [],
+          "errors": [
+            {
+              "row": 1,
+              "column": "header",
+              "value": "student_key,application_year,graduation_year,outcome,decision_on",
+              "message": "Expected headers: applicant_id, year, decision, decision_date"
+            }
+          ],
+          "total": 2,
+          "rejected": 2,
+          "mapping": "strict-v1",
+          "drift": true,
+          "inserted": 0,
+          "unchanged": 0
+        },
+        "unknown_v1.csv": {
+          "id": 6,
+          "filename": "unknown_v1.csv",
+          "workflow": "baseline",
+          "created_at": "2026-11-07T04:13:41.000Z",
+          "status": "schema_error",
+          "accepted": [],
+          "errors": [
+            {
+              "row": 1,
+              "column": "header",
+              "value": "external_key,cycle,outcome,notice_date",
+              "message": "Expected headers: applicant_id, year, decision, decision_date"
+            }
+          ],
+          "total": 1,
+          "rejected": 1,
+          "mapping": "strict-v1",
+          "drift": true,
+          "inserted": 0,
+          "unchanged": 0
+        }
+      },
+      "final_runs": {
+        "atlas_v1.csv": {
+          "id": 1,
+          "filename": "atlas_v1.csv",
+          "workflow": "baseline",
+          "created_at": "2026-11-07T04:13:40.973Z",
+          "status": "completed",
+          "accepted": [
+            {
+              "applicant_id": "SYN-A01",
+              "year": 2024,
+              "decision": "admitted",
+              "decision_date": "2024-04-01"
+            },
+            {
+              "applicant_id": "SYN-A02",
+              "year": 2024,
+              "decision": "denied",
+              "decision_date": "2024-04-02"
+            },
+            {
+              "applicant_id": "SYN-A03",
+              "year": 2024,
+              "decision": "waitlisted",
+              "decision_date": "2024-04-03"
+            }
+          ],
+          "errors": [
+            {
+              "row": 5,
+              "column": "year",
+              "value": "1999",
+              "message": "Expected a year from 2000 to 2100."
+            }
+          ],
+          "total": 4,
+          "rejected": 1,
+          "mapping": "strict-v1",
+          "drift": false,
+          "inserted": 3,
+          "unchanged": 0
+        },
+        "birch_v1.csv": {
+          "id": 2,
+          "filename": "birch_v1.csv",
+          "workflow": "baseline",
+          "created_at": "2026-11-07T04:13:40.979Z",
+          "status": "schema_error",
+          "accepted": [],
+          "errors": [
+            {
+              "row": 1,
+              "column": "header",
+              "value": "Candidate ID,Entry Year,Result,Decision Date",
+              "message": "Expected headers: applicant_id, year, decision, decision_date"
+            }
+          ],
+          "total": 4,
+          "rejected": 4,
+          "mapping": "strict-v1",
+          "drift": true,
+          "inserted": 0,
+          "unchanged": 0
+        },
+        "cedar_v1.csv": {
+          "id": 3,
+          "filename": "cedar_v1.csv",
+          "workflow": "baseline",
+          "created_at": "2026-11-07T04:13:40.984Z",
+          "status": "schema_error",
+          "accepted": [],
+          "errors": [
+            {
+              "row": 1,
+              "column": "header",
+              "value": "verdict,issued_on,application_cycle,record_id",
+              "message": "Expected headers: applicant_id, year, decision, decision_date"
+            }
+          ],
+          "total": 4,
+          "rejected": 4,
+          "mapping": "strict-v1",
+          "drift": true,
+          "inserted": 0,
+          "unchanged": 0
+        },
+        "atlas_v2.csv": {
+          "id": 4,
+          "filename": "atlas_v2.csv",
+          "workflow": "baseline",
+          "created_at": "2026-11-07T04:13:40.989Z",
+          "status": "schema_error",
+          "accepted": [],
+          "errors": [
+            {
+              "row": 1,
+              "column": "header",
+              "value": "outcome,decision_on,student_key,cycle",
+              "message": "Expected headers: applicant_id, year, decision, decision_date"
+            }
+          ],
+          "total": 4,
+          "rejected": 4,
+          "mapping": "strict-v1",
+          "drift": true,
+          "inserted": 0,
+          "unchanged": 0
+        },
+        "ambiguous_v3.csv": {
+          "id": 5,
+          "filename": "ambiguous_v3.csv",
+          "workflow": "baseline",
+          "created_at": "2026-11-07T04:13:40.995Z",
+          "status": "schema_error",
+          "accepted": [],
+          "errors": [
+            {
+              "row": 1,
+              "column": "header",
+              "value": "student_key,application_year,graduation_year,outcome,decision_on",
+              "message": "Expected headers: applicant_id, year, decision, decision_date"
+            }
+          ],
+          "total": 2,
+          "rejected": 2,
+          "mapping": "strict-v1",
+          "drift": true,
+          "inserted": 0,
+          "unchanged": 0
+        },
+        "unknown_v1.csv": {
+          "id": 6,
+          "filename": "unknown_v1.csv",
+          "workflow": "baseline",
+          "created_at": "2026-11-07T04:13:41.000Z",
+          "status": "schema_error",
+          "accepted": [],
+          "errors": [
+            {
+              "row": 1,
+              "column": "header",
+              "value": "external_key,cycle,outcome,notice_date",
+              "message": "Expected headers: applicant_id, year, decision, decision_date"
+            }
+          ],
+          "total": 1,
+          "rejected": 1,
+          "mapping": "strict-v1",
+          "drift": true,
+          "inserted": 0,
+          "unchanged": 0
+        }
+      }
+    },
+    "improved": {
+      "metrics": {
+        "accepted_valid": 14,
+        "rejected_valid": 0,
+        "held_valid": 1,
+        "invalid_rejected": 4,
+        "manual_corrections_required_initially": 2,
+        "approvals_executed": 1,
+        "schema_departures_surfaced": 5,
+        "uncertain_schemas_held_initially": 2,
+        "incorrect_silent_mappings": 0,
+        "records_before_replay": 14,
+        "records_after_replay": 14,
+        "record_growth_on_replay": 0,
+        "format_regressions_passing": 4,
+        "format_regressions_total": 4
+      },
+      "files": {
+        "atlas_v1.csv": {
+          "accepted_valid": 3,
+          "rejected_valid": 0,
+          "held_valid": 0,
+          "invalid_rejected": 1,
+          "incorrect_silent_mappings": 0,
+          "status": "completed",
+          "accepted": 3,
+          "rejected": 1,
+          "mapping": "Atlas@1",
+          "schema_departure_surfaced": false
+        },
+        "birch_v1.csv": {
+          "accepted_valid": 3,
+          "rejected_valid": 0,
+          "held_valid": 0,
+          "invalid_rejected": 1,
+          "incorrect_silent_mappings": 0,
+          "status": "completed",
+          "accepted": 3,
+          "rejected": 1,
+          "mapping": "Birch@1",
+          "schema_departure_surfaced": true
+        },
+        "cedar_v1.csv": {
+          "accepted_valid": 3,
+          "rejected_valid": 0,
+          "held_valid": 0,
+          "invalid_rejected": 1,
+          "incorrect_silent_mappings": 0,
+          "status": "completed",
+          "accepted": 3,
+          "rejected": 1,
+          "mapping": "Cedar@1",
+          "schema_departure_surfaced": true
+        },
+        "atlas_v2.csv": {
+          "accepted_valid": 3,
+          "rejected_valid": 0,
+          "held_valid": 0,
+          "invalid_rejected": 1,
+          "incorrect_silent_mappings": 0,
+          "status": "completed",
+          "accepted": 3,
+          "rejected": 1,
+          "mapping": "Aliases@1",
+          "schema_departure_surfaced": true
+        },
+        "ambiguous_v3.csv": {
+          "accepted_valid": 2,
+          "rejected_valid": 0,
+          "held_valid": 0,
+          "invalid_rejected": 0,
+          "incorrect_silent_mappings": 0,
+          "status": "completed",
+          "accepted": 2,
+          "rejected": 0,
+          "mapping": "Atlas reviewed@1",
+          "schema_departure_surfaced": true
+        },
+        "unknown_v1.csv": {
+          "accepted_valid": 0,
+          "rejected_valid": 0,
+          "held_valid": 1,
+          "invalid_rejected": 0,
+          "incorrect_silent_mappings": 0,
+          "status": "awaiting_review",
+          "accepted": 0,
+          "rejected": 0,
+          "mapping": null,
+          "schema_departure_surfaced": true
+        }
+      },
+      "format_regressions": {
+        "atlas_v1.csv": true,
+        "birch_v1.csv": true,
+        "cedar_v1.csv": true,
+        "atlas_v2.csv": true
+      },
+      "initial_runs": {
+        "atlas_v1.csv": {
+          "id": 7,
+          "filename": "atlas_v1.csv",
+          "workflow": "improved",
+          "created_at": "2026-11-07T04:13:41.025Z",
+          "accepted": [
+            {
+              "applicant_id": "SYN-A01",
+              "year": 2024,
+              "decision": "admitted",
+              "decision_date": "2024-04-01"
+            },
+            {
+              "applicant_id": "SYN-A02",
+              "year": 2024,
+              "decision": "denied",
+              "decision_date": "2024-04-02"
+            },
+            {
+              "applicant_id": "SYN-A03",
+              "year": 2024,
+              "decision": "waitlisted",
+              "decision_date": "2024-04-03"
+            }
+          ],
+          "accepted_rows": [
+            2,
+            3,
+            4
+          ],
+          "errors": [
+            {
+              "row": 5,
+              "column": "year",
+              "field": "year",
+              "value": "1999",
+              "message": "Expected a year from 2000 to 2100."
+            }
+          ],
+          "total": 4,
+          "rejected": 1,
+          "held": 0,
+          "drift": false,
+          "mapping": "Atlas@1",
+          "status": "completed",
+          "mapping_config": {
+            "name": "Atlas",
+            "version": 1,
+            "date_format": "%Y-%m-%d",
+            "fields": {
+              "applicant_id": "applicant_id",
+              "year": "year",
+              "decision": "decision",
+              "decision_date": "decision_date"
+            },
+            "headers": [
+              "applicant_id",
+              "decision",
+              "decision_date",
+              "year"
+            ],
+            "ignored": [],
+            "source": "configured"
+          },
+          "inserted": 3,
+          "unchanged": 0
+        },
+        "birch_v1.csv": {
+          "id": 8,
+          "filename": "birch_v1.csv",
+          "workflow": "improved",
+          "created_at": "2026-11-07T04:13:41.032Z",
+          "accepted": [
+            {
+              "applicant_id": "SYN-B01",
+              "year": 2024,
+              "decision": "admitted",
+              "decision_date": "2024-04-01"
+            },
+            {
+              "applicant_id": "SYN-B02",
+              "year": 2024,
+              "decision": "denied",
+              "decision_date": "2024-04-02"
+            },
+            {
+              "applicant_id": "SYN-B03",
+              "year": 2024,
+              "decision": "waitlisted",
+              "decision_date": "2024-04-03"
+            }
+          ],
+          "accepted_rows": [
+            2,
+            3,
+            4
+          ],
+          "errors": [
+            {
+              "row": 5,
+              "column": "decision_date",
+              "field": "decision_date",
+              "value": "02/30/2024",
+              "message": "Expected a real date matching %m/%d/%Y; confirm the vendor contract."
+            }
+          ],
+          "total": 4,
+          "rejected": 1,
+          "held": 0,
+          "drift": true,
+          "mapping": "Birch@1",
+          "status": "completed",
+          "mapping_config": {
+            "name": "Birch",
+            "version": 1,
+            "date_format": "%m/%d/%Y",
+            "fields": {
+              "applicant_id": "candidate_id",
+              "year": "entry_year",
+              "decision": "result",
+              "decision_date": "decision_date"
+            },
+            "headers": [
+              "candidate_id",
+              "decision_date",
+              "entry_year",
+              "result"
+            ],
+            "ignored": [],
+            "source": "configured"
+          },
+          "inserted": 3,
+          "unchanged": 0
+        },
+        "cedar_v1.csv": {
+          "id": 9,
+          "filename": "cedar_v1.csv",
+          "workflow": "improved",
+          "created_at": "2026-11-07T04:13:41.037Z",
+          "accepted": [
+            {
+              "applicant_id": "SYN-C01",
+              "year": 2024,
+              "decision": "admitted",
+              "decision_date": "2024-04-01"
+            },
+            {
+              "applicant_id": "SYN-C02",
+              "year": 2024,
+              "decision": "denied",
+              "decision_date": "2024-04-02"
+            },
+            {
+              "applicant_id": "SYN-C03",
+              "year": 2024,
+              "decision": "waitlisted",
+              "decision_date": "2024-04-03"
+            }
+          ],
+          "accepted_rows": [
+            2,
+            3,
+            4
+          ],
+          "errors": [
+            {
+              "row": 5,
+              "column": "verdict",
+              "field": "decision",
+              "value": "MAYBE",
+              "message": "Expected admitted, denied or waitlisted."
+            }
+          ],
+          "total": 4,
+          "rejected": 1,
+          "held": 0,
+          "drift": true,
+          "mapping": "Cedar@1",
+          "status": "completed",
+          "mapping_config": {
+            "name": "Cedar",
+            "version": 1,
+            "date_format": "%d.%m.%Y",
+            "fields": {
+              "applicant_id": "record_id",
+              "year": "application_cycle",
+              "decision": "verdict",
+              "decision_date": "issued_on"
+            },
+            "headers": [
+              "application_cycle",
+              "issued_on",
+              "record_id",
+              "verdict"
+            ],
+            "ignored": [],
+            "source": "configured"
+          },
+          "inserted": 3,
+          "unchanged": 0
+        },
+        "atlas_v2.csv": {
+          "id": 10,
+          "filename": "atlas_v2.csv",
+          "workflow": "improved",
+          "created_at": "2026-11-07T04:13:41.043Z",
+          "accepted": [
+            {
+              "applicant_id": "SYN-D01",
+              "year": 2025,
+              "decision": "admitted",
+              "decision_date": "2025-04-01"
+            },
+            {
+              "applicant_id": "SYN-D02",
+              "year": 2025,
+              "decision": "denied",
+              "decision_date": "2025-04-02"
+            },
+            {
+              "applicant_id": "SYN-D03",
+              "year": 2025,
+              "decision": "waitlisted",
+              "decision_date": "2025-04-03"
+            }
+          ],
+          "accepted_rows": [
+            2,
+            3,
+            4
+          ],
+          "errors": [
+            {
+              "row": 5,
+              "column": "student_key",
+              "field": "applicant_id",
+              "value": "",
+              "message": "Use a nonempty synthetic ID, at most 80 characters."
+            }
+          ],
+          "total": 4,
+          "rejected": 1,
+          "held": 0,
+          "drift": true,
+          "mapping": "Aliases@1",
+          "status": "completed",
+          "mapping_config": {
+            "name": "Aliases",
+            "version": 1,
+            "fields": {
+              "applicant_id": "student_key",
+              "year": "cycle",
+              "decision": "outcome",
+              "decision_date": "decision_on"
+            },
+            "headers": [
+              "cycle",
+              "decision_on",
+              "outcome",
+              "student_key"
+            ],
+            "ignored": [],
+            "date_format": "%Y-%m-%d",
+            "source": "aliases"
+          },
+          "inserted": 3,
+          "unchanged": 0
+        },
+        "ambiguous_v3.csv": {
+          "id": 11,
+          "filename": "ambiguous_v3.csv",
+          "workflow": "improved",
+          "created_at": "2026-11-07T04:13:41.048Z",
+          "accepted": [],
+          "accepted_rows": [],
+          "errors": [
+            {
+              "row": 1,
+              "column": "year",
+              "value": "application_year, graduation_year",
+              "message": "Multiple plausible columns; choose explicitly."
+            },
+            {
+              "row": 1,
+              "column": "header",
+              "value": "application_year, graduation_year",
+              "message": "Review unused columns. Approval explicitly records ignored columns."
+            }
+          ],
+          "total": 2,
+          "rejected": 0,
+          "held": 2,
+          "drift": true,
+          "mapping": null,
+          "status": "awaiting_review",
+          "proposal": {
+            "headers": [
+              "student_key",
+              "application_year",
+              "graduation_year",
+              "outcome",
+              "decision_on"
+            ],
+            "fields": {
+              "applicant_id": "student_key",
+              "year": "",
+              "decision": "outcome",
+              "decision_date": "decision_on"
+            },
+            "candidates": {
+              "applicant_id": [
+                "student_key"
+              ],
+              "year": [
+                "application_year",
+                "graduation_year"
+              ],
+              "decision": [
+                "outcome"
+              ],
+              "decision_date": [
+                "decision_on"
+              ]
+            },
+            "date_format": "%Y-%m-%d",
+            "sample": [
+              {
+                "student_key": "SYN-E01",
+                "application_year": "2025",
+                "graduation_year": "2029",
+                "outcome": "Accepted",
+                "decision_on": "2025-04-01"
+              },
+              {
+                "student_key": "SYN-E02",
+                "application_year": "2025",
+                "graduation_year": "2029",
+                "outcome": "Rejected",
+                "decision_on": "2025-04-02"
+              }
+            ]
+          },
+          "inserted": 0,
+          "unchanged": 0
+        },
+        "unknown_v1.csv": {
+          "id": 12,
+          "filename": "unknown_v1.csv",
+          "workflow": "improved",
+          "created_at": "2026-11-07T04:13:41.052Z",
+          "accepted": [],
+          "accepted_rows": [],
+          "errors": [
+            {
+              "row": 1,
+              "column": "applicant_id",
+              "value": "",
+              "message": "No recognized header; select a source column."
+            },
+            {
+              "row": 1,
+              "column": "decision_date",
+              "value": "",
+              "message": "No recognized header; select a source column."
+            },
+            {
+              "row": 1,
+              "column": "header",
+              "value": "external_key, notice_date",
+              "message": "Review unused columns. Approval explicitly records ignored columns."
+            }
+          ],
+          "total": 1,
+          "rejected": 0,
+          "held": 1,
+          "drift": true,
+          "mapping": null,
+          "status": "awaiting_review",
+          "proposal": {
+            "headers": [
+              "external_key",
+              "cycle",
+              "outcome",
+              "notice_date"
+            ],
+            "fields": {
+              "applicant_id": "",
+              "year": "cycle",
+              "decision": "outcome",
+              "decision_date": ""
+            },
+            "candidates": {
+              "applicant_id": [],
+              "year": [
+                "cycle"
+              ],
+              "decision": [
+                "outcome"
+              ],
+              "decision_date": []
+            },
+            "date_format": "%Y-%m-%d",
+            "sample": [
+              {
+                "external_key": "SYN-F01",
+                "cycle": "2025",
+                "outcome": "Accepted",
+                "notice_date": "2025-04-01"
+              }
+            ]
+          },
+          "inserted": 0,
+          "unchanged": 0
+        }
+      },
+      "final_runs": {
+        "atlas_v1.csv": {
+          "id": 7,
+          "filename": "atlas_v1.csv",
+          "workflow": "improved",
+          "created_at": "2026-11-07T04:13:41.025Z",
+          "accepted": [
+            {
+              "applicant_id": "SYN-A01",
+              "year": 2024,
+              "decision": "admitted",
+              "decision_date": "2024-04-01"
+            },
+            {
+              "applicant_id": "SYN-A02",
+              "year": 2024,
+              "decision": "denied",
+              "decision_date": "2024-04-02"
+            },
+            {
+              "applicant_id": "SYN-A03",
+              "year": 2024,
+              "decision": "waitlisted",
+              "decision_date": "2024-04-03"
+            }
+          ],
+          "accepted_rows": [
+            2,
+            3,
+            4
+          ],
+          "errors": [
+            {
+              "row": 5,
+              "column": "year",
+              "field": "year",
+              "value": "1999",
+              "message": "Expected a year from 2000 to 2100."
+            }
+          ],
+          "total": 4,
+          "rejected": 1,
+          "held": 0,
+          "drift": false,
+          "mapping": "Atlas@1",
+          "status": "completed",
+          "mapping_config": {
+            "name": "Atlas",
+            "version": 1,
+            "date_format": "%Y-%m-%d",
+            "fields": {
+              "applicant_id": "applicant_id",
+              "year": "year",
+              "decision": "decision",
+              "decision_date": "decision_date"
+            },
+            "headers": [
+              "applicant_id",
+              "decision",
+              "decision_date",
+              "year"
+            ],
+            "ignored": [],
+            "source": "configured"
+          },
+          "inserted": 3,
+          "unchanged": 0
+        },
+        "birch_v1.csv": {
+          "id": 8,
+          "filename": "birch_v1.csv",
+          "workflow": "improved",
+          "created_at": "2026-11-07T04:13:41.032Z",
+          "accepted": [
+            {
+              "applicant_id": "SYN-B01",
+              "year": 2024,
+              "decision": "admitted",
+              "decision_date": "2024-04-01"
+            },
+            {
+              "applicant_id": "SYN-B02",
+              "year": 2024,
+              "decision": "denied",
+              "decision_date": "2024-04-02"
+            },
+            {
+              "applicant_id": "SYN-B03",
+              "year": 2024,
+              "decision": "waitlisted",
+              "decision_date": "2024-04-03"
+            }
+          ],
+          "accepted_rows": [
+            2,
+            3,
+            4
+          ],
+          "errors": [
+            {
+              "row": 5,
+              "column": "decision_date",
+              "field": "decision_date",
+              "value": "02/30/2024",
+              "message": "Expected a real date matching %m/%d/%Y; confirm the vendor contract."
+            }
+          ],
+          "total": 4,
+          "rejected": 1,
+          "held": 0,
+          "drift": true,
+          "mapping": "Birch@1",
+          "status": "completed",
+          "mapping_config": {
+            "name": "Birch",
+            "version": 1,
+            "date_format": "%m/%d/%Y",
+            "fields": {
+              "applicant_id": "candidate_id",
+              "year": "entry_year",
+              "decision": "result",
+              "decision_date": "decision_date"
+            },
+            "headers": [
+              "candidate_id",
+              "decision_date",
+              "entry_year",
+              "result"
+            ],
+            "ignored": [],
+            "source": "configured"
+          },
+          "inserted": 3,
+          "unchanged": 0
+        },
+        "cedar_v1.csv": {
+          "id": 9,
+          "filename": "cedar_v1.csv",
+          "workflow": "improved",
+          "created_at": "2026-11-07T04:13:41.037Z",
+          "accepted": [
+            {
+              "applicant_id": "SYN-C01",
+              "year": 2024,
+              "decision": "admitted",
+              "decision_date": "2024-04-01"
+            },
+            {
+              "applicant_id": "SYN-C02",
+              "year": 2024,
+              "decision": "denied",
+              "decision_date": "2024-04-02"
+            },
+            {
+              "applicant_id": "SYN-C03",
+              "year": 2024,
+              "decision": "waitlisted",
+              "decision_date": "2024-04-03"
+            }
+          ],
+          "accepted_rows": [
+            2,
+            3,
+            4
+          ],
+          "errors": [
+            {
+              "row": 5,
+              "column": "verdict",
+              "field": "decision",
+              "value": "MAYBE",
+              "message": "Expected admitted, denied or waitlisted."
+            }
+          ],
+          "total": 4,
+          "rejected": 1,
+          "held": 0,
+          "drift": true,
+          "mapping": "Cedar@1",
+          "status": "completed",
+          "mapping_config": {
+            "name": "Cedar",
+            "version": 1,
+            "date_format": "%d.%m.%Y",
+            "fields": {
+              "applicant_id": "record_id",
+              "year": "application_cycle",
+              "decision": "verdict",
+              "decision_date": "issued_on"
+            },
+            "headers": [
+              "application_cycle",
+              "issued_on",
+              "record_id",
+              "verdict"
+            ],
+            "ignored": [],
+            "source": "configured"
+          },
+          "inserted": 3,
+          "unchanged": 0
+        },
+        "atlas_v2.csv": {
+          "id": 10,
+          "filename": "atlas_v2.csv",
+          "workflow": "improved",
+          "created_at": "2026-11-07T04:13:41.043Z",
+          "accepted": [
+            {
+              "applicant_id": "SYN-D01",
+              "year": 2025,
+              "decision": "admitted",
+              "decision_date": "2025-04-01"
+            },
+            {
+              "applicant_id": "SYN-D02",
+              "year": 2025,
+              "decision": "denied",
+              "decision_date": "2025-04-02"
+            },
+            {
+              "applicant_id": "SYN-D03",
+              "year": 2025,
+              "decision": "waitlisted",
+              "decision_date": "2025-04-03"
+            }
+          ],
+          "accepted_rows": [
+            2,
+            3,
+            4
+          ],
+          "errors": [
+            {
+              "row": 5,
+              "column": "student_key",
+              "field": "applicant_id",
+              "value": "",
+              "message": "Use a nonempty synthetic ID, at most 80 characters."
+            }
+          ],
+          "total": 4,
+          "rejected": 1,
+          "held": 0,
+          "drift": true,
+          "mapping": "Aliases@1",
+          "status": "completed",
+          "mapping_config": {
+            "name": "Aliases",
+            "version": 1,
+            "fields": {
+              "applicant_id": "student_key",
+              "year": "cycle",
+              "decision": "outcome",
+              "decision_date": "decision_on"
+            },
+            "headers": [
+              "cycle",
+              "decision_on",
+              "outcome",
+              "student_key"
+            ],
+            "ignored": [],
+            "date_format": "%Y-%m-%d",
+            "source": "aliases"
+          },
+          "inserted": 3,
+          "unchanged": 0
+        },
+        "ambiguous_v3.csv": {
+          "id": 11,
+          "filename": "ambiguous_v3.csv",
+          "workflow": "improved",
+          "created_at": "2026-11-07T04:13:41.048Z",
+          "accepted": [
+            {
+              "applicant_id": "SYN-E01",
+              "year": 2025,
+              "decision": "admitted",
+              "decision_date": "2025-04-01"
+            },
+            {
+              "applicant_id": "SYN-E02",
+              "year": 2025,
+              "decision": "denied",
+              "decision_date": "2025-04-02"
+            }
+          ],
+          "accepted_rows": [
+            2,
+            3
+          ],
+          "errors": [],
+          "total": 2,
+          "rejected": 0,
+          "held": 0,
+          "drift": true,
+          "mapping": "Atlas reviewed@1",
+          "status": "completed",
+          "mapping_config": {
+            "name": "Atlas reviewed",
+            "version": 1,
+            "headers": [
+              "application_year",
+              "decision_on",
+              "graduation_year",
+              "outcome",
+              "student_key"
+            ],
+            "fields": {
+              "applicant_id": "student_key",
+              "year": "application_year",
+              "decision": "outcome",
+              "decision_date": "decision_on"
+            },
+            "ignored": [
+              "graduation_year"
+            ],
+            "date_format": "%Y-%m-%d",
+            "source": "operator"
+          },
+          "approval": {
+            "reviewer": "Benchmark operator",
+            "ignored": [
+              "graduation_year"
+            ]
+          },
+          "inserted": 2,
+          "unchanged": 0
+        },
+        "unknown_v1.csv": {
+          "id": 12,
+          "filename": "unknown_v1.csv",
+          "workflow": "improved",
+          "created_at": "2026-11-07T04:13:41.052Z",
+          "accepted": [],
+          "accepted_rows": [],
+          "errors": [
+            {
+              "row": 1,
+              "column": "applicant_id",
+              "value": "",
+              "message": "No recognized header; select a source column."
+            },
+            {
+              "row": 1,
+              "column": "decision_date",
+              "value": "",
+              "message": "No recognized header; select a source column."
+            },
+            {
+              "row": 1,
+              "column": "header",
+              "value": "external_key, notice_date",
+              "message": "Review unused columns. Approval explicitly records ignored columns."
+            }
+          ],
+          "total": 1,
+          "rejected": 0,
+          "held": 1,
+          "drift": true,
+          "mapping": null,
+          "status": "awaiting_review",
+          "proposal": {
+            "headers": [
+              "external_key",
+              "cycle",
+              "outcome",
+              "notice_date"
+            ],
+            "fields": {
+              "applicant_id": "",
+              "year": "cycle",
+              "decision": "outcome",
+              "decision_date": ""
+            },
+            "candidates": {
+              "applicant_id": [],
+              "year": [
+                "cycle"
+              ],
+              "decision": [
+                "outcome"
+              ],
+              "decision_date": []
+            },
+            "date_format": "%Y-%m-%d",
+            "sample": [
+              {
+                "external_key": "SYN-F01",
+                "cycle": "2025",
+                "outcome": "Accepted",
+                "notice_date": "2025-04-01"
+              }
+            ]
+          },
+          "inserted": 0,
+          "unchanged": 0
+        }
+      }
+    }
+  }
+}

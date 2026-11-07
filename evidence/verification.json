@@ -1,0 +1,59 @@
+{
+  "generated_at": "2026-11-07T04:13:45.918825+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "playwright_channel": "chrome",
+  "checks": [
+    {
+      "cwd": ".",
+      "command": [
+        "C:\\Users\\gursa\\projects\\beacon-labs\\college-import\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "backend/tests",
+        "-q",
+        "--junitxml=evidence/backend-tests.xml"
+      ],
+      "returncode": 0,
+      "output": "...............................                                          [100%]\n============================== warnings summary ===============================\n.venv\\Lib\\site-packages\\fastapi\\testclient.py:1\n  C:\\Users\\gursa\\projects\\beacon-labs\\college-import\\.venv\\Lib\\site-packages\\fastapi\\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n    from starlette.testclient import TestClient as TestClient  # noqa\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n31 passed, 1 warning in 0.85s\n"
+    },
+    {
+      "cwd": "frontend",
+      "command": [
+        "npm.cmd",
+        "run",
+        "typecheck"
+      ],
+      "returncode": 0,
+      "output": "\n> admissions-import-lab@1.0.0 typecheck\n> tsc -b\n\n"
+    },
+    {
+      "cwd": "frontend",
+      "command": [
+        "npm.cmd",
+        "run",
+        "build"
+      ],
+      "returncode": 0,
+      "output": "\n> admissions-import-lab@1.0.0 build\n> tsc -b && vite build\n\nvite v7.3.7 building client environment for production...\ntransforming...\n\u2713 31 modules transformed.\nrendering chunks...\ncomputing gzip size...\ndist/index.html                   0.37 kB \u2502 gzip:  0.27 kB\ndist/assets/index-cbHkkWUg.css    9.53 kB \u2502 gzip:  2.89 kB\ndist/assets/index-C4dp6QfC.js   238.33 kB \u2502 gzip: 74.30 kB\n\u2713 built in 516ms\n"
+    },
+    {
+      "cwd": ".",
+      "command": [
+        "C:\\Users\\gursa\\projects\\beacon-labs\\college-import\\.venv\\Scripts\\python.exe",
+        "scripts/benchmark.py"
+      ],
+      "returncode": 0,
+      "output": "C:\\Users\\gursa\\projects\\beacon-labs\\college-import\\.venv\\Lib\\site-packages\\fastapi\\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\n  from starlette.testclient import TestClient as TestClient  # noqa\nbaseline: {\"accepted_valid\": 3, \"approvals_executed\": 0, \"format_regressions_passing\": 1, \"format_regressions_total\": 4, \"held_valid\": 0, \"incorrect_silent_mappings\": 0, \"invalid_rejected\": 4, \"manual_corrections_required_initially\": 5, \"record_growth_on_replay\": 0, \"records_after_replay\": 3, \"records_before_replay\": 3, \"rejected_valid\": 12, \"schema_departures_surfaced\": 5, \"uncertain_schemas_held_initially\": 0}\nimproved: {\"accepted_valid\": 14, \"approvals_executed\": 1, \"format_regressions_passing\": 4, \"format_regressions_total\": 4, \"held_valid\": 1, \"incorrect_silent_mappings\": 0, \"invalid_rejected\": 4, \"manual_corrections_required_initially\": 2, \"record_growth_on_replay\": 0, \"records_after_replay\": 14, \"records_before_replay\": 14, \"rejected_valid\": 0, \"schema_departures_surfaced\": 5, \"uncertain_schemas_held_initially\": 2}\nAll benchmark assertions passed. Evidence: evidence/benchmark.json\n"
+    },
+    {
+      "cwd": "frontend",
+      "command": [
+        "npm.cmd",
+        "run",
+        "test:e2e"
+      ],
+      "returncode": 0,
+      "output": "\n> admissions-import-lab@1.0.0 test:e2e\n> playwright test\n\n[WebServer] INFO:     Started server process [39116]\n[WebServer] INFO:     Waiting for application startup.\n[WebServer] INFO:     Application startup complete.\n[WebServer] INFO:     Uvicorn running on http://127.0.0.1:8002 (Press CTRL+C to quit)\n[WebServer] (node:35920) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.\n[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)\n\nRunning 2 tests using 1 worker\n\n(node:30576) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.\n(Use `node --trace-warnings ...` to show where the warning was created)\n  ok 1 e2e\\import.spec.ts:4:1 \u203a before and after import, actionable error, approval, replay and registry (1.1s)\n  ok 2 e2e\\import.spec.ts:66:1 \u203a mobile layout and unknown schema stay reviewable (415ms)\n\n  2 passed (4.2s)\n"
+    }
+  ]
+}

@@ -88,7 +88,13 @@ export default function Review({
           ))}
           <label>
             Date contract
-            <select value={date} onChange={(e) => { setDate(e.target.value); setConfirmed(false) }}>
+            <select
+              value={date}
+              onChange={(e) => {
+                setDate(e.target.value)
+                setConfirmed(false)
+              }}
+            >
               <option value="%Y-%m-%d">YYYY-MM-DD</option>
               <option value="%m/%d/%Y">MM/DD/YYYY</option>
               <option value="%d.%m.%Y">DD.MM.YYYY</option>

@@ -2,7 +2,15 @@ import React, { useEffect, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import { api } from './api'
 import Review from './Review'
-import { fields, labels, statusLabel, type Workflow, type Run, type RecordRow, type Registry } from './models'
+import {
+  fields,
+  labels,
+  statusLabel,
+  type Workflow,
+  type Run,
+  type RecordRow,
+  type Registry,
+} from './models'
 import './style.css'
 
 function App() {
