@@ -150,6 +150,7 @@ function App() {
             <div className="segmented">
               <button
                 className={workflow === 'baseline' ? 'chosen' : ''}
+                disabled={busy}
                 onClick={() => {
                   setWorkflow('baseline')
                   setSelected(null)
@@ -160,6 +161,7 @@ function App() {
               </button>
               <button
                 className={workflow === 'improved' ? 'chosen' : ''}
+                disabled={busy}
                 onClick={() => {
                   setWorkflow('improved')
                   setSelected(null)
