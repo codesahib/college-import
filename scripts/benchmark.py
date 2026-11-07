@@ -5,6 +5,7 @@ import os
 import platform
 import sys
 import tempfile
+from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -15,9 +16,32 @@ from backend.main import app
 from scripts.scenarios import EXPECTED, approve_ambiguous, expected_records, upload
 
 
+def canonical_multiset(rows):
+    return Counter(tuple(sorted(row.items())) for row in rows)
+
+
+def validate_canonical_rows(actual, expected, context):
+    actual_counts, expected_counts = canonical_multiset(actual), canonical_multiset(expected)
+    assert actual_counts == expected_counts, (
+        f"{context}: missing={expected_counts - actual_counts}, unexpected={actual_counts - expected_counts}"
+    )
+
+
+def verify_persisted(records, expected, workflow):
+    # Multiple accepted/unchanged source rows can represent one stored identity.
+    unique = {}
+    for row in expected:
+        identity = (row["applicant_id"], row["year"])
+        assert identity not in unique or unique[identity] == row, "Conflicting persistence oracle"
+        unique[identity] = row
+    actual = [{key: value for key, value in row.items() if key != "workflow"}
+              for row in records if row["workflow"] == workflow]
+    validate_canonical_rows(actual, unique.values(), f"{workflow} persisted records")
+
+
 def summarize(result, truth):
     oracle = expected_records(truth)
-    correct = sum(record in oracle for record in result["accepted"])
+    correct = sum((canonical_multiset(result["accepted"]) & canonical_multiset(oracle)).values())
     wrong = len(result["accepted"]) - correct
     held = result.get("held", 0)
     assert len(result["accepted"]) + result["rejected"] + held == result["total"]
@@ -54,11 +78,20 @@ def main():
                     if workflow == "improved":
                         final["ambiguous_v3.csv"] = approve_ambiguous(client, initial["ambiguous_v3.csv"]["id"])
                         actions += 1
+                    expected_stored = []
+                    for name, result in final.items():
+                        # Explicit scenario coverage, independent of reported acceptance counts.
+                        supported = name == "atlas_v1.csv" if workflow == "baseline" else name != "unknown_v1.csv"
+                        oracle = expected_records(EXPECTED[name]) if supported else []
+                        validate_canonical_rows(result["accepted"], oracle, f"{workflow}/{name} accepted")
+                        expected_stored.extend(oracle)
                     files = {name: summarize(result, EXPECTED[name]) for name, result in final.items()}
                     before_replay = [r for r in client.get("/api/records").json() if r["workflow"] == workflow]
+                    verify_persisted(before_replay, expected_stored, workflow)
                     for name in EXPECTED:
                         assert upload(client, workflow, name)["replayed"] is True
                     after_replay = [r for r in client.get("/api/records").json() if r["workflow"] == workflow]
+                    verify_persisted(after_replay, expected_stored, workflow)
                     assert before_replay == after_replay
                     regression = {name: files[name]["accepted_valid"] == EXPECTED[name]["valid"] and files[name]["incorrect_silent_mappings"] == 0
                                   for name in ("atlas_v1.csv", "birch_v1.csv", "cedar_v1.csv", "atlas_v2.csv")}
