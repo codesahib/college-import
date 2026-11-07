@@ -1,0 +1,5 @@
+applicant_id,year,decision,decision_date
+SYN-A01,2024,admitted,2024-04-01
+SYN-A02,2024,denied,2024-04-02
+SYN-A03,2024,waitlisted,2024-04-03
+SYN-A04,1999,admitted,2024-04-04
