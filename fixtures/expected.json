@@ -1,0 +1,8 @@
+{
+  "atlas_v1.csv": {"valid": 3, "invalid": 1, "prefix": "A", "year": 2024, "manual_before": 0, "manual_after": 0},
+  "birch_v1.csv": {"valid": 3, "invalid": 1, "prefix": "B", "year": 2024, "manual_before": 1, "manual_after": 0},
+  "cedar_v1.csv": {"valid": 3, "invalid": 1, "prefix": "C", "year": 2024, "manual_before": 1, "manual_after": 0},
+  "atlas_v2.csv": {"valid": 3, "invalid": 1, "prefix": "D", "year": 2025, "manual_before": 1, "manual_after": 0},
+  "ambiguous_v3.csv": {"valid": 2, "invalid": 0, "prefix": "E", "year": 2025, "manual_before": 1, "manual_after": 1},
+  "unknown_v1.csv": {"valid": 1, "invalid": 0, "prefix": "F", "year": 2025, "manual_before": 1, "manual_after": 1}
+}

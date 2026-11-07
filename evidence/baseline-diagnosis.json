@@ -1,0 +1,98 @@
+[
+  {
+    "file": "atlas_v1.csv",
+    "valid_rows": 3,
+    "invalid_rows": 1,
+    "accepted": 3,
+    "rejected": 1,
+    "status": "completed",
+    "errors": [
+      {
+        "row": 5,
+        "column": "year",
+        "value": "1999",
+        "message": "Expected a year from 2000 to 2100."
+      }
+    ]
+  },
+  {
+    "file": "birch_v1.csv",
+    "valid_rows": 3,
+    "invalid_rows": 1,
+    "accepted": 0,
+    "rejected": 4,
+    "status": "schema_error",
+    "errors": [
+      {
+        "row": 1,
+        "column": "header",
+        "value": "Candidate ID,Entry Year,Result,Decision Date",
+        "message": "Expected headers: applicant_id, year, decision, decision_date"
+      }
+    ]
+  },
+  {
+    "file": "cedar_v1.csv",
+    "valid_rows": 3,
+    "invalid_rows": 1,
+    "accepted": 0,
+    "rejected": 4,
+    "status": "schema_error",
+    "errors": [
+      {
+        "row": 1,
+        "column": "header",
+        "value": "verdict,issued_on,application_cycle,record_id",
+        "message": "Expected headers: applicant_id, year, decision, decision_date"
+      }
+    ]
+  },
+  {
+    "file": "atlas_v2.csv",
+    "valid_rows": 3,
+    "invalid_rows": 1,
+    "accepted": 0,
+    "rejected": 4,
+    "status": "schema_error",
+    "errors": [
+      {
+        "row": 1,
+        "column": "header",
+        "value": "outcome,decision_on,student_key,cycle",
+        "message": "Expected headers: applicant_id, year, decision, decision_date"
+      }
+    ]
+  },
+  {
+    "file": "ambiguous_v3.csv",
+    "valid_rows": 2,
+    "invalid_rows": 0,
+    "accepted": 0,
+    "rejected": 2,
+    "status": "schema_error",
+    "errors": [
+      {
+        "row": 1,
+        "column": "header",
+        "value": "student_key,application_year,graduation_year,outcome,decision_on",
+        "message": "Expected headers: applicant_id, year, decision, decision_date"
+      }
+    ]
+  },
+  {
+    "file": "unknown_v1.csv",
+    "valid_rows": 1,
+    "invalid_rows": 0,
+    "accepted": 0,
+    "rejected": 1,
+    "status": "schema_error",
+    "errors": [
+      {
+        "row": 1,
+        "column": "header",
+        "value": "external_key,cycle,outcome,notice_date",
+        "message": "Expected headers: applicant_id, year, decision, decision_date"
+      }
+    ]
+  }
+]
