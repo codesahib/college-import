@@ -19,8 +19,19 @@ def connect():
             id INTEGER PRIMARY KEY, filename TEXT NOT NULL, workflow TEXT NOT NULL,
             digest TEXT NOT NULL, content BLOB NOT NULL, result TEXT NOT NULL,
             created_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')));
+        CREATE UNIQUE INDEX IF NOT EXISTS unique_upload ON runs(workflow,digest);
+        CREATE TABLE IF NOT EXISTS mappings (
+            id INTEGER PRIMARY KEY, name TEXT NOT NULL, version INTEGER NOT NULL,
+            signature TEXT NOT NULL UNIQUE, config TEXT NOT NULL, reviewer TEXT NOT NULL,
+            created_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
+            UNIQUE(name,version));
     """)
     return connection
+
+
+def get_mappings(connection):
+    from .normalizer import initial_mappings
+    return [json.loads(row["config"]) for row in connection.execute("SELECT config FROM mappings")] + initial_mappings()
 
 
 def save_result(connection, run_id, result):

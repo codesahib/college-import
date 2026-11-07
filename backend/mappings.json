@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "mappings": [
+    {"name": "Atlas", "version": 1, "date_format": "%Y-%m-%d", "fields": {"applicant_id": "applicant_id", "year": "year", "decision": "decision", "decision_date": "decision_date"}},
+    {"name": "Birch", "version": 1, "date_format": "%m/%d/%Y", "fields": {"applicant_id": "candidate_id", "year": "entry_year", "decision": "result", "decision_date": "decision_date"}},
+    {"name": "Cedar", "version": 1, "date_format": "%d.%m.%Y", "fields": {"applicant_id": "record_id", "year": "application_cycle", "decision": "verdict", "decision_date": "issued_on"}}
+  ],
+  "review_only_aliases": {"year": ["graduation_year"]},
+  "header_aliases": {
+    "applicant_id": ["applicant_id", "student_key"],
+    "year": ["year", "cycle", "application_year"],
+    "decision": ["decision", "outcome"],
+    "decision_date": ["decision_date", "decision_on"]
+  },
+  "decision_aliases": {"admitted": "admitted", "accepted": "admitted", "admit": "admitted", "denied": "denied", "rejected": "denied", "deny": "denied", "waitlisted": "waitlisted", "wait list": "waitlisted", "waitlist": "waitlisted"}
+}
