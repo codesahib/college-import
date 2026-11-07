@@ -29,7 +29,10 @@ def validate(values):
     if not applicant or len(applicant) > 80:
         errors.append(("applicant_id", "Use a nonempty synthetic ID, at most 80 characters."))
     year = values.get("year", "").strip()
-    if not year.isascii() or not year.isdigit() or not 2000 <= int(year) <= 2100:
+    # Bound conversion without changing the existing acceptance of leading zeroes.
+    significant_year = year.lstrip("0")
+    year_number = int(significant_year) if year.isascii() and year.isdigit() and len(significant_year) == 4 else None
+    if year_number is None or not 2000 <= year_number <= 2100:
         errors.append(("year", "Expected a year from 2000 to 2100."))
     decision = values.get("decision", "").strip()
     if decision not in DECISIONS:
@@ -41,7 +44,7 @@ def validate(values):
             raise ValueError()
     except ValueError:
         errors.append(("decision_date", "Expected a real date in YYYY-MM-DD format."))
-    return {"applicant_id": applicant, "year": int(year) if not any(e[0] == "year" for e in errors) else None,
+    return {"applicant_id": applicant, "year": year_number if not any(e[0] == "year" for e in errors) else None,
             "decision": decision, "decision_date": raw_date}, errors
 
 
