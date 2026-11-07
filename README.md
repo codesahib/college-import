@@ -89,7 +89,7 @@ python scripts/benchmark.py
 npm --prefix frontend run test:e2e
 ```
 
-For baseline diagnosis only: `python scripts/diagnose.py`. Benchmarking creates/removes a temporary SQLite database **inside `evidence/`**; it does not change the seeded demo. It hashes fixtures, checks canonical values against the declared oracle, exercises both workflows through the API, approves only the ambiguous fixture, and replays every file. The smoke test captures six screenshots and `evidence/playwright-results.json`. Current checks: **31 backend tests passed; typecheck/build passed; 2 Playwright tests passed; benchmark assertions passed**.
+For baseline diagnosis only: `python scripts/diagnose.py`. Benchmarking creates/removes a temporary SQLite database **inside `evidence/`**; it does not change the seeded demo. It hashes fixtures, checks canonical values against the declared oracle, exercises both workflows through the API, approves only the ambiguous fixture, and replays every file. The smoke test captures six screenshots and `evidence/playwright-results.json`. Current checks: **44 backend tests passed; typecheck/build passed; 2 Playwright tests passed; benchmark assertions passed**. The [follow-up audit](docs/06-review.md) records a malformed-year correction and its failing-before/passing-after evidence.
 
 If using an already installed Chrome instead of bundled Chromium:
 
@@ -122,7 +122,7 @@ The final validation used that option after the bundled browser download hit a f
 | `docs/01-baseline.md` through `docs/05-tradeoffs.md` | Phase evidence, engineering process, maintenance decisions |
 | `portfolio/case-study.md`, `evidence/` | Hiring-manager narrative and reproducible artifacts |
 
-Git phase gates: `615da24` (`baseline-demo`) → `33f5cdf` diagnosis → `0b8aa19` improvement. `git show baseline-demo:backend/parser.py` inspects the original parser; its contents remain unchanged. There is no runtime AI dependency. [AI engineering process](docs/04-ai-engineering-process.md) distinguishes development assistance, ordinary automation, and human responsibilities. [Tradeoffs and maintenance](docs/05-tradeoffs.md) explains how to extend this safely.
+Git phase gates: `615da24` (`baseline-demo`) → `33f5cdf` diagnosis → `0b8aa19` improvement. `git show baseline-demo:backend/parser.py` inspects the original parser. The tag is unchanged; follow-up commit `a63eb3b` hardens shared year validation in both current workflows, so current baseline mode differs from the tag on oversized numeric years. The benchmark fixture outcomes remain unchanged. There is no runtime AI dependency. [AI engineering process](docs/04-ai-engineering-process.md) distinguishes development assistance, ordinary automation, and human responsibilities. [Tradeoffs and maintenance](docs/05-tradeoffs.md) explains how to extend this safely.
 
 ## Troubleshooting and boundaries
 

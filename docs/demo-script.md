@@ -55,7 +55,7 @@ If using installed Chrome, prefix with `PLAYWRIGHT_CHANNEL=chrome`. The benchmar
 - 6 files, 19 rows, 15 valid and 4 invalid.
 - Valid imports 3 → 14; required schema-correction events 5 → 2. One approval was executed, one schema remains unresolved.
 - Invalid rows rejected 4/4 both; visible departures 5/5 both; zero silent mismatches and zero replay record growth both.
-- Four supported-format criteria 1/4 → 4/4. All 31 backend tests and both browser smoke tests pass; typecheck/build pass.
+- Four supported-format criteria 1/4 → 4/4. All 44 current backend tests and both browser smoke tests pass; typecheck/build pass. The [follow-up audit](06-review.md) explains shared year-validation hardening since the original 31-test handoff.
 
 Close with the maintenance path: add a synthetic changed-format fixture, confirm semantic contract, adjust declarative rules, add canonical-value/error regressions, run verification and review the evidence. Do not claim measured engineering time savings or production reliability from these tiny fixtures.
 
